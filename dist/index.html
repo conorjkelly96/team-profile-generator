@@ -8,6 +8,13 @@
     <title>My Team Profile</title>
     <link
       rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.3/css/uikit-core-rtl.min.css"
       integrity="sha512-gfpvWpj7EwgKjxRPJ4j3QPtajmzr9JsjqecWBvw+CptfbkwKQC9dLWyuptQu0zjm0CZlOpN0Iepiiu42a+hO8Q=="
       crossorigin="anonymous"
@@ -15,8 +22,44 @@
     />
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-left uk-section-secondary">
+          <h1>Retail, Manufacturing & Wholesale Distribution</h1>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="
+          uk-card
+          uk-card-default
+          uk-width-1-2@m
+          uk-card
+          uk-card-secondary
+          uk-card-hover
+          uk-card-body
+          uk-light
+        "
+      >
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <div class="uk-width-expand">
+              <h3 class="uk-card-title uk-margin-remove-bottom">Conor Kelly</h3>
+              <p class="uk-text-meta uk-margin-remove-top">Engineer</p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-footer">
+          <a href="#" class="uk-button uk-button-text">GitHub</a>
+          <a href="#" class="uk-button uk-button-text">GitHub</a>
+          <a href="#" class="uk-button uk-button-text">Email:</a>
+        </div>
+      </div>
+    </main>
     <footer></footer>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.9.3/js/uikit.min.js"
