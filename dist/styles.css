@@ -1,14 +1,10 @@
-* {
-  margin: 0;
-}
-
-body {
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
 .card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+.uk-card {
+  margin: 0px;
+  padding: 0px;
 }
