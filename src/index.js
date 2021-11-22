@@ -1,10 +1,15 @@
 // install dependencies
 const inquirer = require("inquirer");
 const utils = require("./util");
+const {
+  teamBuilderQuestions,
+  employeeTypeQuestion,
+  engineerQuestions,
+  internQuestions,
+  continueQuestion,
+} = require("./questions");
 const { writeToFile } = require("./file-gen");
-
-// questions that will be prompted to the user to build team
-const teamBuilderQuestions = [];
+const { Engineer, Intern } = require("./lib");
 
 // generating Read Me document
 const generateHTMLfile = (answers) => {
@@ -163,13 +168,42 @@ const generateHTMLfile = (answers) => {
 // initialize user interaction
 const init = async () => {
   // prompt Main Questions
+  let inProgress = true;
+  const teamMembers = [];
+
+  while (inProgress) {
+    const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
+
+    if (employeeType === "ENGINEER") {
+      const { text, amount, date } = await inquirer.prompt(engineerQuestions);
+      const engineer = new Engineer({ text, amount, date });
+      teamMembers.push(engineer);
+    }
+
+    if (employeeType === "INTERN") {
+      const { text, date, status } = await inquirer.prompt(internQuestions);
+      const intern = new Intern({ text, date, status });
+      teamMembers.push(intern);
+    }
+
+    const { anotherEmployee } = await inquirer.prompt(continueQuestion);
+
+    if (!anotherEmployee) {
+      inProgress = false;
+    }
+  }
+
   const answers = await inquirer.prompt(teamBuilderQuestions);
 
+  console.log(answers);
+
   // generate HTML file
-  const readMe = generateHTMLfile(answers);
+  const htmlPage = generateHTMLfile(answers);
 
   // HTML file generated
-  writeToFile("team-profile-generator/dist/index.html", readMe);
+  writeToFile("./dist/index.html", htmlPage);
+  console.log("HTML Webpage Creation = Successful");
+  process.exit(0);
 };
 
 init();
