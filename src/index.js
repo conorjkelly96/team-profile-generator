@@ -175,14 +175,16 @@ const init = async () => {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
     if (employeeType === "ENGINEER") {
-      const { text, amount, date } = await inquirer.prompt(engineerQuestions);
-      const engineer = new Engineer({ text, amount, date });
+      const { name, id, github } = await inquirer.prompt(engineerQuestions);
+      const engineer = new Engineer({ name, id, github });
       teamMembers.push(engineer);
     }
 
     if (employeeType === "INTERN") {
-      const { text, date, status } = await inquirer.prompt(internQuestions);
-      const intern = new Intern({ text, date, status });
+      const { name, id, email, school } = await inquirer.prompt(
+        internQuestions
+      );
+      const intern = new Intern({ name, id, email, school });
       teamMembers.push(intern);
     }
 
