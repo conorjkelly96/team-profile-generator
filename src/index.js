@@ -9,7 +9,7 @@ const {
   continueQuestion,
 } = require("./questions");
 const { writeToFile } = require("./file-gen");
-const { Engineer, Intern } = require("./lib");
+const { Engineer, Intern } = require("./lib/index");
 
 // generating Read Me document
 const generateHTMLfile = (answers) => {
@@ -174,13 +174,13 @@ const init = async () => {
   while (inProgress) {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
-    if (employeeType === "ENGINEER") {
+    if (employeeType === "Engineer") {
       const { name, id, github } = await inquirer.prompt(engineerQuestions);
       const engineer = new Engineer({ name, id, github });
       teamMembers.push(engineer);
     }
 
-    if (employeeType === "INTERN") {
+    if (employeeType === "Intern") {
       const { name, id, email, school } = await inquirer.prompt(
         internQuestions
       );

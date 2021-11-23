@@ -25,47 +25,37 @@ const teamBuilderQuestions = [
     message: "Enter office number",
     name: "managerOfficeNumber",
   },
-  {
-    type: "list",
-    message: "Select team member type",
-    name: "employeeType",
-    choices: [],
-  },
 ];
 
 const employeeTypeQuestion = [
   {
-    type: "input",
-    name: "text",
-    message: "Enter payee:",
-  },
-  {
-    type: "input",
-    name: "amount",
-    message: "Enter amount:",
-  },
-  {
-    type: "datepicker",
-    name: "date",
-    message: "Due on:",
+    type: "list",
+    message: "Select team member type",
+    name: "employeeType",
+    choices: ["Engineer", "Intern"],
   },
 ];
 
 const engineerQuestions = [
   {
     type: "input",
-    name: "text",
-    message: "Enter payee:",
+    name: "employeeName",
+    message: "Enter employee name:",
   },
   {
     type: "input",
-    name: "amount",
-    message: "Enter amount:",
+    name: "employeeID",
+    message: "Enter employee ID:",
   },
   {
-    type: "datepicker",
-    name: "date",
-    message: "Due on:",
+    type: "input",
+    name: "text",
+    message: "Enter employee name:",
+  },
+  {
+    type: "input",
+    name: "text",
+    message: "Enter employee name:",
   },
 ];
 
@@ -73,24 +63,24 @@ const internQuestions = [
   {
     type: "input",
     name: "text",
-    message: "Enter payee:",
+    message: "Enter employee name:",
   },
   {
     type: "input",
-    name: "amount",
-    message: "Enter amount:",
+    name: "text",
+    message: "Enter employee name:",
   },
   {
-    type: "datepicker",
-    name: "date",
-    message: "Due on:",
+    type: "input",
+    name: "text",
+    message: "Enter employee name:",
   },
 ];
 
 const continueQuestion = [
   {
     type: "confirm",
-    name: "text",
-    message: "Enter payee:",
+    name: "newMember",
+    message: "Would you like to add another team member?",
   },
 ];
