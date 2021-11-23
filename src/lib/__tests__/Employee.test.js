@@ -1,5 +1,11 @@
 describe("Manager", () => {
-  test("should be an instance of Manger", () => {});
+  test("should be an instance of Manger", () => {
+    const expected = "Manager";
+    const instance = new Manager("Manager");
+    const actual = instance.getRole();
+
+    expect(actual).toEqual(expected);
+  });
 
   test("should return expected name", () => {});
 

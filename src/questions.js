@@ -72,6 +72,11 @@ const internQuestions = [
   },
   {
     type: "input",
+    name: "internEmail",
+    message: "Enter intern email:",
+  },
+  {
+    type: "input",
     name: "internSchool",
     message: "Enter intern school:",
   },

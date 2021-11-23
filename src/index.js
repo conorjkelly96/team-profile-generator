@@ -176,28 +176,36 @@ const init = async () => {
   while (inProgress) {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
-    if (employeeType === "Engineer") {
-      const { name, id, github } = await inquirer.prompt(engineerQuestions);
-      const engineer = new Engineer({ name, id, github });
+    if (employeeType == "Engineer") {
+      const { employeeName, employeeId, employeeEmail, employeeGithub } =
+        await inquirer.prompt(engineerQuestions);
+      const engineer = new Engineer({
+        employeeName,
+        employeeId,
+        employeeEmail,
+        employeeGithub,
+      });
       teamMembers.push(engineer);
     }
 
-    if (employeeType === "Intern") {
-      const { name, id, email, school } = await inquirer.prompt(
-        internQuestions
-      );
-      const intern = new Intern({ name, id, email, school });
+    if (employeeType == "Intern") {
+      const { internName, internID, internEmail, internSchool } =
+        await inquirer.prompt(internQuestions);
+      const intern = new Intern({
+        internName,
+        internID,
+        internEmail,
+        internSchool,
+      });
       teamMembers.push(intern);
     }
 
     const { anotherEmployee } = await inquirer.prompt(continueQuestion);
 
-    console.log(teamMembers);
-
     if (!anotherEmployee) {
       inProgress = false;
       // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
-      return teamMembers;
+      // return teamMembers;
     }
   }
 
