@@ -171,6 +171,8 @@ const init = async () => {
   let inProgress = true;
   const teamMembers = [];
 
+  const answers = await inquirer.prompt(teamBuilderQuestions);
+
   while (inProgress) {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
@@ -190,14 +192,18 @@ const init = async () => {
 
     const { anotherEmployee } = await inquirer.prompt(continueQuestion);
 
+    console.log(teamMembers);
+
     if (!anotherEmployee) {
       inProgress = false;
+      // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
+      return teamMembers;
     }
   }
 
-  const answers = await inquirer.prompt(teamBuilderQuestions);
-
   console.log(answers);
+  // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
+  console.log(teamMembers);
 
   // generate HTML file
   const htmlPage = generateHTMLfile(answers);

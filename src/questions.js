@@ -49,31 +49,31 @@ const engineerQuestions = [
   },
   {
     type: "input",
-    name: "text",
-    message: "Enter employee name:",
+    name: "employeeGithub",
+    message: "Enter employee github:",
   },
   {
     type: "input",
-    name: "text",
-    message: "Enter employee name:",
+    name: "employeeEmail",
+    message: "Enter employee e-mail:",
   },
 ];
 
 const internQuestions = [
   {
     type: "input",
-    name: "text",
-    message: "Enter employee name:",
+    name: "internName",
+    message: "Enter intern name:",
   },
   {
     type: "input",
-    name: "text",
-    message: "Enter employee name:",
+    name: "internID",
+    message: "Enter intern id:",
   },
   {
     type: "input",
-    name: "text",
-    message: "Enter employee name:",
+    name: "internSchool",
+    message: "Enter intern school:",
   },
 ];
 
@@ -84,3 +84,11 @@ const continueQuestion = [
     message: "Would you like to add another team member?",
   },
 ];
+
+module.exports = {
+  teamBuilderQuestions,
+  employeeTypeQuestion,
+  engineerQuestions,
+  internQuestions,
+  continueQuestion,
+};
