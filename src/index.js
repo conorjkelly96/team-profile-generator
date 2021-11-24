@@ -177,20 +177,21 @@ const init = async () => {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
     if (employeeType == "Engineer") {
-      const { employeeName, employeeId, employeeEmail, employeeGithub } =
-        await inquirer.prompt(engineerQuestions);
-      const engineer = new Engineer({
-        employeeName,
-        employeeId,
-        employeeEmail,
-        employeeGithub,
-      });
+      // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
+      // const { employeeName, employeeId, employeeEmail, employeeGithub } =
+      //   await inquirer.prompt(engineerQuestions);
+      const engineerAnswers = await inquirer.prompt(engineerQuestions);
+      console.log(engineerAnswers);
+      const engineer = new Engineer(engineerAnswers);
       teamMembers.push(engineer);
     }
 
     if (employeeType == "Intern") {
-      const { internName, internID, internEmail, internSchool } =
-        await inquirer.prompt(internQuestions);
+      // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
+      // const { internName, internID, internEmail, internSchool } =
+      //   await inquirer.prompt(internQuestions);
+      const internAnswers = await inquirer.prompt(internQuestions);
+      console.log(internAnswers);
       const intern = new Intern({
         internName,
         internID,
@@ -201,7 +202,7 @@ const init = async () => {
     }
 
     const anotherEmployee = await inquirer.prompt(continueQuestion);
-
+    console.log(teamMembers);
     if (!anotherEmployee.newMember) {
       inProgress = false;
       // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
