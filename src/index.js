@@ -200,9 +200,9 @@ const init = async () => {
       teamMembers.push(intern);
     }
 
-    const { anotherEmployee } = await inquirer.prompt(continueQuestion);
+    const anotherEmployee = await inquirer.prompt(continueQuestion);
 
-    if (!anotherEmployee) {
+    if (!anotherEmployee.newMember) {
       inProgress = false;
       // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
       // return teamMembers;
