@@ -178,26 +178,20 @@ const init = async () => {
 
     if (employeeType == "Engineer") {
       // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
-      // const { employeeName, employeeId, employeeEmail, employeeGithub } =
-      //   await inquirer.prompt(engineerQuestions);
-      const engineerAnswers = await inquirer.prompt(engineerQuestions);
-      console.log(engineerAnswers);
-      const engineer = new Engineer(engineerAnswers);
+      const { name, id, email, github } = await inquirer.prompt(
+        engineerQuestions
+      );
+      const engineer = new Engineer({ name, id, email, github });
+      console.log(engineer);
       teamMembers.push(engineer);
     }
 
     if (employeeType == "Intern") {
       // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
-      // const { internName, internID, internEmail, internSchool } =
-      //   await inquirer.prompt(internQuestions);
-      const internAnswers = await inquirer.prompt(internQuestions);
-      console.log(internAnswers);
-      const intern = new Intern({
-        internName,
-        internID,
-        internEmail,
-        internSchool,
-      });
+      const { name, id, email, school } = await inquirer.prompt(
+        internQuestions
+      );
+      const intern = new Intern({ name, id, email, school });
       teamMembers.push(intern);
     }
 
@@ -206,13 +200,12 @@ const init = async () => {
     if (!anotherEmployee.newMember) {
       inProgress = false;
       // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
-      // return teamMembers;
     }
   }
 
-  console.log(answers);
+  console.log("answers", answers);
   // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
-  console.log(teamMembers);
+  console.log("teamMembers", teamMembers);
 
   // generate HTML file
   const htmlPage = generateHTMLfile(answers);
