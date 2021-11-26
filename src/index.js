@@ -7,9 +7,10 @@ const {
   engineerQuestions,
   internQuestions,
   continueQuestion,
+  managerQuestion,
 } = require("./questions");
 const { writeToFile } = require("./file-gen");
-const { Engineer, Intern } = require("./lib/index");
+const { Engineer, Intern, Manager } = require("./lib/index");
 
 // generating Read Me document
 const generateHTMLfile = (answers) => {
@@ -172,6 +173,11 @@ const init = async () => {
   const teamMembers = [];
 
   const answers = await inquirer.prompt(teamBuilderQuestions);
+  const { name, id, email, officeNumber } = await inquirer.prompt(
+    managerQuestion
+  );
+  const manager = new Manager({ name, id, email, officeNumber });
+  teamMembers.push(manager);
 
   while (inProgress) {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
@@ -203,7 +209,6 @@ const init = async () => {
     }
   }
 
-  console.log("answers", answers);
   // DO I HAVE TO RETURN TEAM MEMBERS, CONSTRUCT ANOTHER OBJECT WITH THE ANSWERS AND PUSH THAT TO FINAL ANSWER?
   console.log("teamMembers", teamMembers);
 

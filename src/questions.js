@@ -5,25 +5,28 @@ const teamBuilderQuestions = [
     message: "Enter team name:",
     name: "teamName",
   },
+];
+
+const managerQuestion = [
   {
     type: "input",
     message: "Enter your name:",
-    name: "managerName",
+    name: "name",
   },
   {
     type: "input",
     message: "Enter employee ID:",
-    name: "managerID",
+    name: "id",
   },
   {
     type: "input",
     message: "Enter email address",
-    name: "managerEmail",
+    name: "email",
   },
   {
     type: "input",
     message: "Enter office number",
-    name: "managerOfficeNumber",
+    name: "officeNumber",
   },
 ];
 
@@ -96,4 +99,5 @@ module.exports = {
   engineerQuestions,
   internQuestions,
   continueQuestion,
+  managerQuestion,
 };
