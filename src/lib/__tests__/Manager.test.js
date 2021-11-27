@@ -1,3 +1,6 @@
+// using Manager constructor
+const Manager = require("../lib/Manager");
+
 describe("Manager", () => {
   test("should be an instance of Manger", () => {
     const expected = "Manager";

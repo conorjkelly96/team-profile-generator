@@ -1,13 +1,42 @@
-describe("Manager", () => {
-  test("should be an instance of Manger", () => {});
+// using Intern constructor
+const Intern = require("../lib/Intern");
 
-  test("should return expected name", () => {});
+describe("Intern", () => {
+  // creating intern object
+  test("creates an Intern object", () => {
+    const intern = new Intern(
+      "Conor Kelly",
+      90,
+      "conorjkelly96@gmail.com",
+      "UoS"
+    );
 
-  test("should return expected id", () => {});
+    expect(intern.school).toEqual(expect.any(String));
+  });
 
-  test("should return expected email", () => {});
+  // gets school from getSchool()
+  test("gets employee school", () => {
+    const intern = new Intern(
+      "Conor Kelly",
+      90,
+      "conorjkelly96@gmail.com",
+      "UoS"
+    );
 
-  test("should return expected office number", () => {});
+    expect(intern.getSchool()).toEqual(
+      expect.stringContaining(intern.school.toString())
+    );
+  });
 
-  test("should return expected role", () => {});
+  // gets role from getRole()
+  test("gets role of employee", () => {
+    const intern = new Intern(
+      "Conor Kelly",
+      90,
+      "conorjkelly96@gmail.com",
+      "UoS"
+    );
+
+    expect(intern.getRole()).toEqual("Intern");
+  });
 });

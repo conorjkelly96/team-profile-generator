@@ -1,13 +1,42 @@
-describe("Manager", () => {
-  test("should be an instance of Manger", () => {});
+// using Engineer constructor
+const Engineer = require("../lib/Engineer");
 
-  test("should return expected name", () => {});
+describe("Engineer", () => {
+  // creating engineer object
+  test("creates an Engineer object", () => {
+    const engineer = new Engineer(
+      "Conor Kelly",
+      10,
+      "conorjkelly96@gmail",
+      "cokelly13a"
+    );
 
-  test("should return expected id", () => {});
+    expect(engineer.github).toEqual(expect.any(String));
+  });
 
-  test("should return expected email", () => {});
+  // gets github from getGithub()
+  test("gets engineer github value", () => {
+    const engineer = new Engineer(
+      "Conor Kelly",
+      10,
+      "conorjkelly96@gmail",
+      "cokelly13a"
+    );
 
-  test("should return expected office number", () => {});
+    expect(engineer.getGithub()).toEqual(
+      expect.stringContaining(engineer.github.toString())
+    );
+  });
 
-  test("should return expected role", () => {});
+  // gets role from getRole()
+  test("gets role of employee", () => {
+    const engineer = new Engineer(
+      "Conor Kelly",
+      10,
+      "conorjkelly96@gmail",
+      "cokelly13a"
+    );
+
+    expect(engineer.getRole()).toEqual("Engineer");
+  });
 });
