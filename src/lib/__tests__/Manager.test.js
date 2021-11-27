@@ -10,13 +10,35 @@ describe("Manager", () => {
     expect(actual).toEqual(expected);
   });
 
-  test("should return expected name", () => {});
+  test("should return expected name", () => {
+    const expected = "1234565432";
+    const instance = new Manager({ id: "1234565432" });
+    const actual = instance.id;
 
-  test("should return expected id", () => {});
+    expect(actual).toEqual(expected);
+  });
 
-  test("should return expected email", () => {});
+  test("should return expected name", () => {
+    const expected = "Conor Kelly";
+    const instance = new Manager({ name: "Conor Kelly" });
+    const actual = instance.name;
 
-  test("should return expected office number", () => {});
+    expect(actual).toEqual(expected);
+  });
 
-  test("should return expected role", () => {});
+  test("should return expected email", () => {
+    const expected = "conorjkelly96@gmail.com";
+    const instance = new Manager({ email: "conorjkelly96@gmail.com" });
+    const actual = instance.email;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test("should return expected office number", () => {
+    const expected = "01213334455";
+    const instance = new Manager({ officeNumber: "01213334455" });
+    const actual = instance.getOfficeNumber();
+
+    expect(actual).toEqual(expected);
+  });
 });

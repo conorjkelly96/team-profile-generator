@@ -2,41 +2,43 @@
 const Engineer = require("../../lib/Engineer");
 
 describe("Engineer", () => {
-  // creating engineer object
-  test("creates an Engineer object", () => {
-    const engineer = new Engineer(
-      "Conor Kelly",
-      10,
-      "conorjkelly96@gmail",
-      "cokelly13a"
-    );
+  test("should be an instance of Engineer", () => {
+    const expected = "Engineer";
+    const instance = new Engineer("Engineer");
+    const actual = instance.getRole();
 
-    expect(engineer.github).toEqual(expect.any(String));
+    expect(actual).toEqual(expected);
   });
 
-  // gets github from getGithub()
-  test("gets engineer github value", () => {
-    const engineer = new Engineer(
-      "Conor Kelly",
-      10,
-      "conorjkelly96@gmail",
-      "cokelly13a"
-    );
+  test("should return expected name", () => {
+    const expected = "1234565432";
+    const instance = new Engineer({ id: "1234565432" });
+    const actual = instance.id;
 
-    expect(engineer.getGithub()).toEqual(
-      expect.stringContaining(engineer.github.toString())
-    );
+    expect(actual).toEqual(expected);
   });
 
-  // gets role from getRole()
-  test("gets role of employee", () => {
-    const engineer = new Engineer(
-      "Conor Kelly",
-      10,
-      "conorjkelly96@gmail",
-      "cokelly13a"
-    );
+  test("should return expected name", () => {
+    const expected = "Conor Kelly";
+    const instance = new Engineer({ name: "Conor Kelly" });
+    const actual = instance.name;
 
-    expect(engineer.getRole()).toEqual("Engineer");
+    expect(actual).toEqual(expected);
+  });
+
+  test("should return expected email", () => {
+    const expected = "conorjkelly96@gmail.com";
+    const instance = new Engineer({ email: "conorjkelly96@gmail.com" });
+    const actual = instance.email;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test("should return expected school", () => {
+    const expected = "crazyLemon";
+    const instance = new Engineer({ github: "crazyLemon" });
+    const actual = instance.getGithub();
+
+    expect(actual).toEqual(expected);
   });
 });

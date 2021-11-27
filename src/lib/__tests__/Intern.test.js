@@ -2,41 +2,43 @@
 const Intern = require("../../lib/Intern");
 
 describe("Intern", () => {
-  // creating intern object
-  test("creates an Intern object", () => {
-    const intern = new Intern(
-      "Conor Kelly",
-      90,
-      "conorjkelly96@gmail.com",
-      "UoS"
-    );
+  test("should be an instance of Intern", () => {
+    const expected = "Intern";
+    const instance = new Intern("Intern");
+    const actual = instance.getRole();
 
-    expect(intern.school).toEqual(expect.any(String));
+    expect(actual).toEqual(expected);
   });
 
-  // gets school from getSchool()
-  test("gets employee school", () => {
-    const intern = new Intern(
-      "Conor Kelly",
-      90,
-      "conorjkelly96@gmail.com",
-      "UoS"
-    );
+  test("should return expected name", () => {
+    const expected = "1234565432";
+    const instance = new Intern({ id: "1234565432" });
+    const actual = instance.id;
 
-    expect(intern.getSchool()).toEqual(
-      expect.stringContaining(intern.school.toString())
-    );
+    expect(actual).toEqual(expected);
   });
 
-  // gets role from getRole()
-  test("gets role of employee", () => {
-    const intern = new Intern(
-      "Conor Kelly",
-      90,
-      "conorjkelly96@gmail.com",
-      "UoS"
-    );
+  test("should return expected name", () => {
+    const expected = "Conor Kelly";
+    const instance = new Intern({ name: "Conor Kelly" });
+    const actual = instance.name;
 
-    expect(intern.getRole()).toEqual("Intern");
+    expect(actual).toEqual(expected);
+  });
+
+  test("should return expected email", () => {
+    const expected = "conorjkelly96@gmail.com";
+    const instance = new Intern({ email: "conorjkelly96@gmail.com" });
+    const actual = instance.email;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test("should return expected school", () => {
+    const expected = "OLOW";
+    const instance = new Intern({ school: "OLOW" });
+    const actual = instance.getSchool();
+
+    expect(actual).toEqual(expected);
   });
 });
