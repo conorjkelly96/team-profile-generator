@@ -30,9 +30,9 @@ const generateHTMLfile = (teamName, teamMembers) => {
       return generateManagerCard(teamMember);
     }
   };
-  const teamCards = teamMembers.map(generateCard);
+  const teamMemberCards = teamMembers.map(generateCard);
 
-  const cardString = teamCards.join("");
+  const cardSection = teamMemberCards.join("");
   return `<!DOCTYPE html>
     <html lang="en">
       <head>
@@ -126,7 +126,7 @@ const generateHTMLfile = (teamName, teamMembers) => {
   
             <div class="album py-5 bg-light">
             <div class="container">
-              <div class="d-flex flex-row flex-wrap">${cardString}</div>
+              <div class="d-flex flex-row flex-wrap">${cardSection}</div>
             </div>
           </div>
         </main>
@@ -163,7 +163,6 @@ const init = async () => {
     const { employeeType } = await inquirer.prompt(employeeTypeQuestion);
 
     if (employeeType == "Engineer") {
-      // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
       const { name, id, email, github } = await inquirer.prompt(
         engineerQuestions
       );
@@ -172,7 +171,6 @@ const init = async () => {
     }
 
     if (employeeType == "Intern") {
-      // CK 24/11: OBJECT DESTRUCTURING IS NOT WORKING IN THIS INSTANCE
       const { name, id, email, school } = await inquirer.prompt(
         internQuestions
       );
