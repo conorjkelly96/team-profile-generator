@@ -10,7 +10,7 @@ describe("Employee", () => {
     expect(actual).toEqual(expected);
   });
 
-  test("should return expected name", () => {
+  test("should return expected ID", () => {
     const expected = "1234565432";
     const instance = new Employee({ id: "1234565432" });
     const actual = instance.getId();
