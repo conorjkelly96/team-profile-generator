@@ -1,10 +1,7 @@
-.card-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.uk-card {
-  margin: 0px;
-  padding: 0px;
+/* overwriting bootstrap css */
+footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
 }
