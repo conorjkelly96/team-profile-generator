@@ -4,15 +4,7 @@
 
 This command line interface application is designed to allow managers to quickly generate a Team Profile webpage based on the different types of employees they want to add with their corresponding contact information.
 
-## Table of Contents
-
-- [Technologies Used](#technologiesused)
-- [Link to Walkthrough](#linktowalkthrough)
-- [Solution Overview](#solutionoverview)
-- [Inquirer](#inquirer)
-- [License](#screenshots)
-
-## Technologies Used
+## Technologies
 
 - JavaScript
   - node.js
@@ -22,7 +14,7 @@ This command line interface application is designed to allow managers to quickly
 - CSS
   - BootStrap
 
-## Link to Walkthrough
+## Walkthrough
 
 [Click here!](https://drive.google.com/drive/folders/1zaPQcu1q1uCcHMuSMjucVyZxd6Ms_L87?usp=sharing)
 
