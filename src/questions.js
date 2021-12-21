@@ -22,6 +22,12 @@ const managerQuestion = [
     type: "input",
     message: "Enter email address",
     name: "email",
+    validate: function (email) {
+      // Regex mail check (return true if valid mail)
+      return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+        email
+      );
+    },
   },
   {
     type: "input",
@@ -59,6 +65,12 @@ const engineerQuestions = [
     type: "input",
     name: "email",
     message: "Enter employee e-mail:",
+    validate: function (email) {
+      // Regex mail check (return true if valid mail)
+      return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+        email
+      );
+    },
   },
 ];
 
@@ -77,6 +89,12 @@ const internQuestions = [
     type: "input",
     name: "email",
     message: "Enter intern email:",
+    validate: function (email) {
+      // Regex mail check (return true if valid mail)
+      return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+        email
+      );
+    },
   },
   {
     type: "input",
