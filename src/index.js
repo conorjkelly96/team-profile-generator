@@ -54,7 +54,6 @@ const init = async () => {
 
   // generate HTML file
   const htmlPage = generateHTMLfile(teamName, teamMembers);
-  console.log(teamName);
 
   // HTML file generated
   writeToFile("./dist/index.html", htmlPage);

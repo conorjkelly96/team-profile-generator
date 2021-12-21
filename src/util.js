@@ -1,5 +1,11 @@
 const { Engineer, Intern, Manager } = require("./lib/index");
 
+const validateEmail = (email) => {
+  return /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()\.,;\s@\"]+\.{0,1})+([^<>()\.,;:\s@\"]{2,}|[\d\.]+))$/.test(
+    email
+  );
+};
+
 // generate manager card
 const generateManagerCard = (manager) => {
   return `<div class="col">
@@ -195,4 +201,5 @@ const generateHTMLfile = (teamName, teamMembers) => {
 
 module.exports = {
   generateHTMLfile,
+  validateEmail,
 };
