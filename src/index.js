@@ -1,5 +1,7 @@
 // install dependencies
 const inquirer = require("inquirer");
+
+// importing questions, util functions & classes
 const {
   generateEngineerCard,
   generateInternCard,
