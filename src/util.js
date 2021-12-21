@@ -1,4 +1,86 @@
-<!DOCTYPE html>
+const { Engineer, Intern, Manager } = require("./lib/index");
+
+// generate manager card
+const generateManagerCard = (manager) => {
+  return `<div class="col">
+    <div class="card" style="width: 18rem">
+        <div class="card-body">
+        <h5 class="card-title">${manager.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Manager 👨‍🏫</h6>
+        <h6 class="card-subtitle mb-2 text-muted">${manager.id}</h6>
+        <p class="card-text">
+            If you'd like to get in touch or have issues regarding
+            escalations, please reach out to me below.
+        </p>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            <a href="mailto:${manager.email}" class="card-link text-decoration-none">${manager.email}</a>
+            <a href="#" class="card-link text-decoration-none">${manager.officeNumber}</a>
+        </div>
+        </div>
+    </div>
+    </div>`;
+};
+
+// generate intern card
+const generateInternCard = (intern) => {
+  return `<div class="col">
+    <div class="card" style="width: 18rem">
+        <div class="card-body">
+        <h5 class="card-title">${intern.name} </h5>
+        <h6 class="card-subtitle mb-2 text-muted">Intern 🧑🏽‍🎓</h6>
+        <h6 class="card-subtitle mb-2 text-muted">${intern.id}</h6>
+        <p class="card-text">
+            Hi there! If you'd like to get in touch, please reach out to
+            me below.
+        </p>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+        <a href="mailto:${intern.email}" class="card-link text-decoration-none">${intern.email}</a>
+        <a href="#" class="card-link text-decoration-none">College: ${intern.school}</a>
+        </div>
+        </div>
+    </div>
+    </div>`;
+};
+
+// generate engineer card
+const generateEngineerCard = (engineer) => {
+  return `<div class="col">
+    <div class="card" style="width: 18rem">
+        <div class="card-body">
+        <h5 class="card-title">${engineer.name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Engineer 🧑‍🔬</h6>
+        <h6 class="card-subtitle mb-2 text-muted">${engineer.id}</h6>
+        <p class="card-text">
+            Want to check out my work and collaborate on a new project?
+            Click the links below!
+        </p>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+        <a href="mailto:${engineer.email}" class="card-link text-decoration-none">${engineer.email}</a>
+        <a href="https://www.github.com/${engineer.github}" class="card-link text-decoration-none">GitHub: ${engineer.github}</a>
+        </div>
+        </div>
+    </div>
+    </div>`;
+};
+
+const generateHTMLfile = (teamName, teamMembers) => {
+  const generateCard = (teamMember) => {
+    if (teamMember instanceof Engineer) {
+      return generateEngineerCard(teamMember);
+    }
+
+    if (teamMember instanceof Intern) {
+      return generateInternCard(teamMember);
+    }
+
+    if (teamMember instanceof Manager) {
+      return generateManagerCard(teamMember);
+    }
+  };
+  const teamMemberCards = teamMembers.map(generateCard);
+
+  const cardSection = teamMemberCards.join("");
+  return `<!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="utf-8" />
@@ -9,7 +91,7 @@
             content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
           />
           <meta name="generator" content="Hugo 0.88.1" />
-          <title>Welcome to drtyfuiop</title>
+          <title>Welcome to ${teamName}</title>
           <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -47,7 +129,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">drtyfuiop</h4>
+                    <h4 class="text-white">${teamName}</h4>
                     <p class="text-muted">
                       Add some information about the album below, the author, or any
                       other background context. Make it a few sentences long so folks
@@ -70,7 +152,7 @@
               <div class="container">
                 <a href="#" class="navbar-brand d-flex align-items-center">
                   <i class="fas fa-users"></i>
-                  <strong>drtyfuiop</strong>
+                  <strong>${teamName}</strong>
                 </a>
               </div>
             </div>
@@ -80,7 +162,7 @@
             <section class="py-5 text-center container">
               <div class="row py-lg-5">
                 <div class="mx-auto">
-                  <h1 class="fw-light">🎉 Welcome to drtyfuiop! 🎉</h1>
+                  <h1 class="fw-light">🎉 Welcome to ${teamName}! 🎉</h1>
                   <p class="lead text-muted">
                     Our team members are below, if you like the look of us and you
                     think we can work together, why not fire over an email? 🚀
@@ -91,39 +173,7 @@
     
               <div class="album py-5 bg-light">
               <div class="container">
-                <div class="d-flex flex-row flex-wrap"><div class="col">
-    <div class="card" style="width: 18rem">
-        <div class="card-body">
-        <h5 class="card-title">ertwgeaf</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Manager 👨‍🏫</h6>
-        <h6 class="card-subtitle mb-2 text-muted">gdfa</h6>
-        <p class="card-text">
-            If you'd like to get in touch or have issues regarding
-            escalations, please reach out to me below.
-        </p>
-        <div class="d-flex flex-row flex-wrap justify-content-center">
-            <a href="fgds" class="card-link text-decoration-none">fgds</a>
-            <a href="#" class="card-link text-decoration-none">dgf</a>
-        </div>
-        </div>
-    </div>
-    </div><div class="col">
-    <div class="card" style="width: 18rem">
-        <div class="card-body">
-        <h5 class="card-title">dfg</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Engineer 🧑‍🔬</h6>
-        <h6 class="card-subtitle mb-2 text-muted">fdg</h6>
-        <p class="card-text">
-            Want to check out my work and collaborate on a new project?
-            Click the links below!
-        </p>
-        <div class="d-flex flex-row flex-wrap justify-content-center">
-        <a href="dfg" class="card-link text-decoration-none">dfg</a>
-        <a href="#" class="card-link text-decoration-none">GitHub: fgd</a>
-        </div>
-        </div>
-    </div>
-    </div></div>
+                <div class="d-flex flex-row flex-wrap">${cardSection}</div>
               </div>
             </div>
           </main>
@@ -140,4 +190,9 @@
           <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
         </body>
       </html>
-      
+      `;
+};
+
+module.exports = {
+  generateHTMLfile,
+};
