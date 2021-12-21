@@ -44,7 +44,7 @@ const generateHTMLfile = (teamName, teamMembers) => {
           content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
         />
         <meta name="generator" content="Hugo 0.88.1" />
-        <title>Welcome to ${teamName.teamName}</title>
+        <title>Welcome to ${teamName}</title>
         <link
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -82,7 +82,7 @@ const generateHTMLfile = (teamName, teamMembers) => {
             <div class="container">
               <div class="row">
                 <div class="col-sm-8 col-md-7 py-4">
-                  <h4 class="text-white">${teamName.teamName}</h4>
+                  <h4 class="text-white">${teamName}</h4>
                   <p class="text-muted">
                     Add some information about the album below, the author, or any
                     other background context. Make it a few sentences long so folks
@@ -105,7 +105,7 @@ const generateHTMLfile = (teamName, teamMembers) => {
             <div class="container">
               <a href="#" class="navbar-brand d-flex align-items-center">
                 <i class="fas fa-users"></i>
-                <strong>${teamName.teamName}</strong>
+                <strong>${teamName}</strong>
               </a>
             </div>
           </div>
@@ -115,7 +115,7 @@ const generateHTMLfile = (teamName, teamMembers) => {
           <section class="py-5 text-center container">
             <div class="row py-lg-5">
               <div class="mx-auto">
-                <h1 class="fw-light">🎉 Welcome to ${teamName.teamName}! 🎉</h1>
+                <h1 class="fw-light">🎉 Welcome to ${teamName}! 🎉</h1>
                 <p class="lead text-muted">
                   Our team members are below, if you like the look of us and you
                   think we can work together, why not fire over an email? 🚀
@@ -152,7 +152,7 @@ const init = async () => {
   let inProgress = true;
   const teamMembers = [];
 
-  const answers = await inquirer.prompt(teamBuilderQuestions);
+  const { teamName } = await inquirer.prompt(teamBuilderQuestions);
   const { name, id, email, officeNumber } = await inquirer.prompt(
     managerQuestion
   );
@@ -185,7 +185,8 @@ const init = async () => {
   }
 
   // generate HTML file
-  const htmlPage = generateHTMLfile(answers, teamMembers);
+  const htmlPage = generateHTMLfile(teamName, teamMembers);
+  console.log(teamName);
 
   // HTML file generated
   writeToFile("./dist/index.html", htmlPage);
