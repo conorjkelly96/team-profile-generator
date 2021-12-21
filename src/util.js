@@ -13,7 +13,7 @@ const generateManagerCard = (manager) => {
             escalations, please reach out to me below.
         </p>
         <div class="d-flex flex-row flex-wrap justify-content-center">
-            <a href="${manager.email}" class="card-link text-decoration-none">${manager.email}</a>
+            <a href="mailto:${manager.email}" class="card-link text-decoration-none">${manager.email}</a>
             <a href="#" class="card-link text-decoration-none">${manager.officeNumber}</a>
         </div>
         </div>
@@ -34,7 +34,7 @@ const generateInternCard = (intern) => {
             me below.
         </p>
         <div class="d-flex flex-row flex-wrap justify-content-center">
-        <a href="${intern.email}" class="card-link text-decoration-none">${intern.email}</a>
+        <a href="mailto:${intern.email}" class="card-link text-decoration-none">${intern.email}</a>
         <a href="#" class="card-link text-decoration-none">College: ${intern.school}</a>
         </div>
         </div>
@@ -55,8 +55,8 @@ const generateEngineerCard = (engineer) => {
             Click the links below!
         </p>
         <div class="d-flex flex-row flex-wrap justify-content-center">
-        <a href="${engineer.email}" class="card-link text-decoration-none">${engineer.email}</a>
-        <a href="#" class="card-link text-decoration-none">GitHub: ${engineer.github}</a>
+        <a href="mailto:${engineer.email}" class="card-link text-decoration-none">${engineer.email}</a>
+        <a href="https://www.github.com/${engineer.github}" class="card-link text-decoration-none">GitHub: ${engineer.github}</a>
         </div>
         </div>
     </div>
